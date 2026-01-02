@@ -1,0 +1,19 @@
+<div style="background-color: rgb(250,250,256);" class="w-lg mt-20 font-sans mx-auto shadow-md shadow-blue-200 rounded-sm flex flex-col items-center overflow-hidden" >
+<h2 class="text-4xl p-4 font-semibold text-white w-full text-center bg-blue-400" >Reset Password</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "w-5/6" }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field my-6">
+    <%= f.label :email, class: "font-semibold ml-1" %><br />
+    <%= f.email_field :email, class: "mt-1 w-full h-10 outline-1 outline-gray-400 rounded-lg pl-2 focus:outline-1 focus:outline-blue-400", autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: "w-50 bg-blue-500 active:bg-blue-800 text-white font-semibold h-8" %>
+  </div>
+<% end %>
+
+<div class="my-6 flex-col justify-between w-4/5">
+<%= render "devise/shared/links" %>
+</div>

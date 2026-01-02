@@ -1,0 +1,33 @@
+<div style="background-color: rgb(250,250,256);" class="w-lg mt-20 font-sans mx-auto shadow-md shadow-blue-200 rounded-sm flex flex-col items-center overflow-hidden">
+<h2 class="text-4xl p-4 font-semibold text-white w-full text-center bg-blue-400" >Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "w-5/6"}) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field my-6">
+    <%= f.label :email, class: "font-semibold ml-1" %><br />
+    <%= f.email_field :email, class: "w-full  mt-1 h-10 outline-1 outline-gray-400 rounded-lg pl-2 focus:outline-1 focus:outline-blue-400", autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field w-full my-6">
+    <%= f.label :password, class: "font-semibold ml-1" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, class: "w-full  mt-1 h-10 outline-1 outline-gray-400 rounded-lg pl-2 focus:outline-1 focus:outline-blue-400", autocomplete: "new-password" %>
+  </div>
+
+  <div class="field mb-8">
+    <%= f.label :password_confirmation, class: "font-semibold ml-1" %><br />
+    <%= f.password_field :password_confirmation, class: "w-full  mt-1 h-10 outline-1 outline-gray-400 rounded-lg pl-2 focus:outline-1 focus:outline-blue-400", autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions w-full flex justify-center font-semibold">
+    <%= f.submit "Sign up", class: "w-50 bg-blue-500 active:bg-blue-800 text-white h-[38]"  %>
+  </div>
+<% end %>
+
+<p class="my-6">Already have an account?
+<%= render "devise/shared/links" %>
+</p>
+</div>
