@@ -3,7 +3,38 @@
   <p>Find me in app/views/refs/index.html.erb</p>
 </div>
 
-<div class="my-5 font-mono">
+<div class="drawer drawer-end">
+  <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">
+    <!-- Page content here -->
+    <label for="my-drawer-5" class="drawer-button btn btn-primary">Profile</label>
+  </div>
+  <div class="drawer-side z-60">
+    <label for="my-drawer-5" aria-label="close sidebar" class="drawer-overlay"></label>
+    <ul class="menu bg-base-200 min-h-full w-80 p-4">
+      <!-- Sidebar content here -->
+      <div class="my-5 font-mono mx-auto">
+        <p class="text-lg text-bold">User details</p>
+          <% if current_user.profile_image.attached? %>
+            <%= image_tag current_user.profile_image, class: "w-24 h-24 rounded-full" %>
+          <% else %>
+            Image not attached!
+          <% end %>
+        <p>email: <%= current_user.email %></p>
+      </div> 
+      <%= link_to "edit profile", edit_user_registration_path, class: "h-6 w-full text-md text-center font-semibold bg-grey-400" %>
+      <div class="h-6 w-full text-md text-center font-bold text-white bg-red-600">
+        <%= link_to "Sign Out",
+        destroy_user_session_path,
+        data: { turbo_method: :delete }%>
+      </div>
+    </ul>
+  </div>
+</div>
+
+<%
+=begin%>
+ <div class="my-5 font-mono">
 <p class="text-lg text-bold">User details</p>
 <p>email: <%= current_user.email %></p>
 
@@ -12,7 +43,9 @@
   <% else %>
     Image not attached!
   <% end %>
-</div>
+</div> 
+<%
+=end%>
 
 <%= link_to "Profile", edit_user_registration_path %>
 
@@ -21,3 +54,8 @@
     data: { turbo_method: :delete },
     class: "text-red-600" %>
 
+<%= button_to "Delete Account",
+    registration_path(current_user),
+    method: :delete,
+    data: { confirm: "Are you sure? This will delete your account permanently." },
+    class: "bg-red-600 text-white px-4 py-2 rounded" %>
