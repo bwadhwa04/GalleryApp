@@ -1,4 +1,44 @@
-<div class="w-lg mt-20 font-sans mx-auto shadow-md shadow-blue-200 rounded-sm flex flex-col items-center overflow-hidden">
+<div class="bg-[url(https://images.wallpapersden.com/image/download/black-color-liquid-4k_bGtpbmeUmZqaraWkpJRqZmdlrWdtbWU.jpg)] bg-cover">
+  <div class="hero mx-auto min-h-screen flex-col w-3/5">
+    <div class="backdrop-blur-lg p-4 rounded-2xl shadow-md -mt-24 shadow-black">
+      <div class="w-lg bg-white font-sans mx-auto rounded-xl flex flex-col shadow-md shadow-black items-center overflow-hidden py-5" >
+        <h2 class="text-4xl p-4 font-bold w-full text-center" >Reset your Password</h2>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "w-5/6" }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= f.hidden_field :reset_password_token %>
+          
+          <div class="field w-full my-5">
+            <%= f.label :password, "New password", class: "font-semibold ml-1" %>
+              <% if @minimum_password_length %>
+                <em class="text-xs">(<%= @minimum_password_length %> characters minimum)</em><br />
+              <% end %>
+            <%= f.password_field :password,  class: "input bg-gray-100 w-full text-black mt-2", autofocus: true, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation, "Confirm new password", class: "font-semibold ml-1" %><br />
+            <%= f.password_field :password_confirmation,  class: "input bg-gray-100 w-full text-black mt-2", autocomplete: "new-password" %>
+          </div>
+
+          <div>
+            <%= f.submit "Change my password", class: "btn btn-neutral w-full mt-8" %>
+          </div>
+                  
+        <% end %>
+
+        <div class="my-6 flex-col text-sm justify-between w-4/5">
+        <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<%
+=begin%>
+ <div class="w-lg mt-20 font-sans mx-auto shadow-md shadow-blue-200 rounded-sm flex flex-col items-center overflow-hidden">
 <h2 class="text-3xl p-4 font-semibold text-white w-full text-center bg-blue-400" >Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "w-5/6" }) do |f| %>
@@ -25,4 +65,6 @@
 <div class="w-5/6 mb-5 flex justify-between">
 <%= render "devise/shared/links" %>
 </div>
-</div>
+</div> 
+<%
+=end%>

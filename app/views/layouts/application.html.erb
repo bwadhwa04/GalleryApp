@@ -17,16 +17,18 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="background-color: rgb(250,250,256);">
-    <main>
+  <body>
+    <main class="min-h-screen">
     <%= render "/partials/navbar" %>
       <%= yield %>
+      <%= render "/partials/footer" %>
     </main>
   </body>
 </html>

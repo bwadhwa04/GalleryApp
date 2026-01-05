@@ -1,4 +1,33 @@
-<div style="background-color: rgb(250,250,256);" class="w-lg mt-20 font-sans mx-auto shadow-md shadow-blue-200 rounded-sm flex flex-col items-center overflow-hidden" >
+<div class="bg-[url(https://images.wallpapersden.com/image/download/black-color-liquid-4k_bGtpbmeUmZqaraWkpJRqZmdlrWdtbWU.jpg)] bg-cover">
+<div class="hero mx-auto min-h-screen flex-col w-3/5">
+  <div class="hero-content flex-col lg:flex-row-reverse! w-4/5 rounded-xl backdrop-blur-lg shadow-md shadow-black -mt-16">
+    <div class="text-center text-white lg:text-left! ">
+      <h1 class="text-5xl font-bold">Login now!</h1>
+      <p class="py-6">
+        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+        quasi. In deleniti eaque aut repudiandae et a id nisi.
+      </p>
+    </div>
+    <div class="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl py-3">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "card-body"}) do |f|%>
+        <fieldset class="fieldset">
+           <%= f.label :email %><br />
+           <%= f.email_field :email, class: "input w-full -mt-5 mb-4", autofocus: true, autocomplete: "email" %>
+           <%= f.label :password %><br />
+           <%= f.password_field :password, class: "input w-full -mt-5 mb-4", autocomplete: "current-password" %>
+          <div><%= render "devise/shared/links" %></div>
+          <%= f.submit "Log in", class: "btn btn-neutral mt-4" %>
+        </fieldset>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<%
+=begin%>
+ <div style="background-color: rgb(250,250,256);" class="w-lg mt-20 font-sans mx-auto shadow-md shadow-blue-200 rounded-sm flex flex-col items-center overflow-hidden" >
 <h2 class="text-4xl p-4 font-semibold text-white w-full text-center bg-blue-400" >Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: " w-5/6"}) do |f|%>
@@ -28,4 +57,6 @@
 <%= render "devise/shared/links" %>
 </div>
 
-</div>
+</div> 
+<%
+=end%>
