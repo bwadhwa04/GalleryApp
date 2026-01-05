@@ -1,25 +1,28 @@
-<h2>Change your password</h2>
+<div class="w-lg mt-20 font-sans mx-auto shadow-md shadow-blue-200 rounded-sm flex flex-col items-center overflow-hidden">
+<h2 class="text-3xl p-4 font-semibold text-white w-full text-center bg-blue-400" >Change your password</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "w-5/6" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
+  <div class="field w-full my-5">
+    <%= f.label :password, "New password", class: "font-semibold ml-1" %>
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <em class="text-xs">(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.password_field :password,  class: "w-full  mt-1 h-10 outline-1 outline-gray-400 rounded-lg pl-2 focus:outline-1 focus:outline-blue-400", autofocus: true, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, "Confirm new password", class: "font-semibold ml-1" %><br />
+    <%= f.password_field :password_confirmation,  class: "w-full  mt-1 h-10 outline-1 outline-gray-400 rounded-lg pl-2 focus:outline-1 focus:outline-blue-400", autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+  <div class="actions my-5 w-full flex justify-center font-semibold">
+    <%= f.submit "Change my password", class: "w-50 bg-blue-500 active:bg-blue-800 text-white h-[38]" %>
   </div>
 <% end %>
-
+<div class="w-5/6 mb-5 flex justify-between">
 <%= render "devise/shared/links" %>
+</div>
+</div>
